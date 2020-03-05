@@ -1,13 +1,14 @@
-.side_bar
-  .side_bar__user_name
-    .user_name
-      .user_name__name morita
-      .user_name__icon
-        = link_to "#", class: "user_name__edit" do
-          %i.far.fa-edit
-        = link_to "#", class: "user_name__cog" do
+.chat_side
+  .side_header
+    .side_header__box
+      .side_header__box__user_name morita
+      .side_header__box__menu
+        = link_to "#", class: "side_header__box__menu__edit" do
+          %i.far.fa-edit  
+        = link_to "#", class: "side_header__box__menu__cog" do
           %i.fas.fa-cog
-  .side_bar__group_list
-    .group_list__list
-      .list__name techcamp
-      .list__text まだメッセージがありません
+  .groups
+    .group
+      .group__name techcamp
+      .group__message まだメッセージがありません
+
