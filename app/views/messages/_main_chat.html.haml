@@ -1,1 +1,31 @@
-＜チャット画面＞
+.main_chat
+  .chat_main__group_info
+    .group_info__left
+      .group_info__left__group_name グループ名
+      %ul.group_info__left__group_list 
+        Member：
+        %li.group_info__left__group_list__member woody
+    %a(href='#')
+      .chat_main__group_info__btn Edit
+  
+  .chat_main__message_list 
+    .message_list__box
+      .message_list__box__info
+        %p.message_list__box__info__name woody
+        %p.message_list__box__info__date 2020/3/5
+      %p.message_list__box__text おはようございます
+    .message_list__box
+      .message_list__box__info
+        %p.message_list__box__info__name izumi
+        %p.message_list__box__info__date 2020/3/5
+      %p.message_list__box__text こんばんは
+  
+  .chat_main__message_form
+    %form.message.new
+      .input_box
+        %input{type: "text", class: "input_box__text", placeholder: "type a message"}
+        %label{class: "input_box__image"}
+          =icon('fas', 'image')
+          %input{type: "file", class: "input_box__image__file"}
+      .input{type: "submit", class: "submit_btn"} SEND
+
