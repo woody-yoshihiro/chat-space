@@ -25,8 +25,7 @@
 }    
 .side_header__box__menu {
   display: flex;
-  &__edit {
-  }
+  
   &__cog {
     margin-left: 5px;
   }
@@ -47,13 +46,17 @@
 
 .group {
   color: #ffffff;
+  text-decoration: none;
   margin-bottom: 40px;
   font-weight: bold;
+
   &__name {
+    color: #ffffff;
     font-size: 15px;
     margin-bottom: 5px;
   }
   &__message {
+    color: #ffffff;
     font-size: 11px;
   }
 }
