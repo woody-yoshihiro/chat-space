@@ -1,30 +1,23 @@
 .main_chat
   .main_header
     .main_header__left
-      .main_header__left__group_name グループ名
+      .main_header__left__group_name
+        = @group.name
       %ul.main_header__left__group_list 
         Member：
-        %li.main_header__left__group_list__member woody
-    = link_to "#", class: "new__btn" do
+        %li.main_header__left__group_list__member
+          = @group.users.pluck(:name).join(",")
+    = link_to edit_group_path(@group), class: "new__btn" do
       .main_header__new_btn Edit
-  
-  .messages
-    .message
-      .message__info
-        %p.message__info__name woody
-        %p.message__info__date 2020/3/5
-      %p.message__text おはようございます
-      .message__info
-        %p.message__info__name izumi
-        %p.message__info__date 2020/3/6
-      %p.message__text こんばんは
-  
-  .chat_main__message_form
-    %form.message.new
-      .input_box
-        %input{type: "text", class: "input_box__text", placeholder: "type a message"}
-        %label{class: "input_box__image"}
-          =icon('fas', 'image')
-          %input{type: "file", class: "input_box__image__file"}
-      .input{type: "submit", class: "submit_btn"} SEND
 
+  .messages
+    = render @messages
+  
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, placeholder: "type a message", class: "input_box__text" 
+      .input_box     
+        = label :image, class: "input_box__image" do
+          = icon("fas", "image", class: "input_box__image__icon")
+          = f.file_field :image, class: 'hidden'
+      = f.submit "Send", class: "submit_btn"
